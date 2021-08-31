@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--日志优先级别以及优先级排序：off>fatal>error>warn>info>debug>trace>all-->
+<!--configuration后面的status用户设置log4j2自身内部的信息输入，可以不设置，当设置成trace时候，可以看到log4j2内部各种详细输出-->
+<Configuration status="INFO">
+    <!--    先定义所有的appenders-->
+    <Appenders>
+        <!--        输出日志信息到控制台-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--            控制日志输出的格式-->
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <!--    然后定义logger，只有定义了logger并引入的appender,appender才会生效-->
+    <!--    root:用于指定项目的跟日志，如果没有单独指定logger,则会使用root作为默认的日志输出-->
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
